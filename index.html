@@ -23,11 +23,11 @@
         <div class="background" id="banner">
             <div class="content">
                 <h4>RDWA <span>I</span> <span class="after">RURAL DOCTORS WORKFORCE AGENCY</span></h4>
-                <h1 contentEditable="true">CULTURAL COMPETENCY GRANT</h1>
+                <h1 contentEditable="true" id="line1">CULTURAL COMPETENCY GRANT</h1>
                 <h2 contentEditable="true" id="line2">APPLICATION FORM 2021-22</h2>
             </div>
             <div class="image">
-                <img src="./RDWANewLogo.svg">                
+                <img src="./RDWA_Horizontal_Logo_RBG_white_text.png">                
             </div>
         </div>
     </div>
@@ -39,12 +39,13 @@
         }
 
         function download_image() {
-            var node = document.getElementById("banner");
+            var line1 = document.getElementById("line1").innerHTML;
+            var line2 = document.getElementById("line2").innerHTML;
 
             domtoimage.toJpeg(document.getElementById('banner'), { quality: 0.95 })
                 .then(function (dataUrl) {
                     var link = document.createElement('a');
-                    link.download = 'Banner.jpeg';
+                    link.download = line1 + ' ' + line2 + ' Banner.jpeg';
                     link.href = dataUrl;
                     link.click();
                 });
